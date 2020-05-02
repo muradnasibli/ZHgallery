@@ -1,0 +1,92 @@
+﻿@model PortfolioWebApp.Models.PostEditViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var firstImagePath = "~/postImages/" + (Model.FirstImageUrl ?? "noimage.jpg");
+    var secondImagePath = "~/postImages/" + (Model.SecondImageUrl ?? "noimage.jpg");
+    var thirdImagePath = "~/postImages/" + (Model.ThirdImageUrl ?? "noimage.jpg");
+    var fourthImagePath = "~/postImages/" + (Model.FourthImageUrl ?? "noimage.jpg");
+    var fifthImagePath = "~/postImages/" + (Model.FifthImageUrl ?? "noimage.jpg");
+    var sixthImagePath = "~/postImages/" + (Model.SixthImageUrl ?? "noimage.jpg");
+}
+
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <div class="row">
+        @if (Model.FirstImageUrl != null)
+        {
+            <div class="col-md-2">
+
+                <img src=@firstImagePath style="width:100%; height:auto" asp-append-version="true" />
+
+            </div>
+        }
+        @if (Model.SecondImageUrl != null)
+        {
+            <div class="col-md-2">
+                <img src=@secondImagePath style="width:100%; height:auto" asp-append-version="true" />
+            </div>
+        }
+        @if (Model.ThirdImageUrl != null)
+        {
+            <div class="col-md-2">
+                <img src=@thirdImagePath style="width:100%; height:auto" asp-append-version="true" />
+            </div>
+        }
+
+        @if (Model.FourthImageUrl != null)
+        {
+            <div class="col-md-2">
+                <img src=@fourthImagePath style="width:100%; height:auto" asp-append-version="true" />
+            </div>
+        }
+        @if (Model.FifthImageUrl != null)
+        {
+            <div class="col-md-2">
+                <img src=@fifthImagePath style="width:100%; height:auto" asp-append-version="true" />
+            </div>
+        }
+        @if (Model.SixthImageUrl != null)
+        {
+            <div class="col-md-2">
+                <img src="@sixthImagePath" style="width:100%; height:auto" asp-append-version="true" />
+            </div>
+        }
+    </div>
+    <hr />
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            Category Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <dt class="col-sm-10">
+            Post create date: @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+        <dt class="col-sm-10">
+            Post update date: @Html.DisplayFor(model => model.UpdateDate)
+        </dt>
+        <dt class="col-sm-10">
+            Active @Html.DisplayFor(model => model.IsActive)
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+</div>
