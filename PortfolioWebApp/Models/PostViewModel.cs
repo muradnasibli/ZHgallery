@@ -14,8 +14,9 @@ namespace PortfolioWebApp.Models
         [Required(ErrorMessage = "Please enter name...")]
         [StringLength(maximumLength: 150, ErrorMessage = "Please enter name correctly...")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Please enter title...")]
-        [StringLength(maximumLength: 150, ErrorMessage = "Please enter title correctly...")]
+
+        [Required(ErrorMessage = "Please enter description...")]
+        [Display(Name = "Description")]
         public string Title { get; set; }
 #nullable enable
         public IFormFile? FirstImageUrl { get; set; }

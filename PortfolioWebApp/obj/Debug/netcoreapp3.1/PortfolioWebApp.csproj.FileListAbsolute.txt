@@ -150,3 +150,4 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Category\Default.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.csprojAssemblyReference.cache
+C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Portfolio\Index.cshtml.g.cs

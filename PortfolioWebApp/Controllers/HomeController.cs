@@ -5,22 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PortfolioWebApp.Contracts;
 using PortfolioWebApp.Models;
 
 namespace PortfolioWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPostRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPostRepository repo)
         {
-            _logger = logger;
+            _repo = repo;
         }
-
         public IActionResult Index()
         {
-            return View();
+            var posts = _repo.Include(x => x.Category).ToList();
+            return View(posts);
         }
 
         public IActionResult Privacy()

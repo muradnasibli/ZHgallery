@@ -12,11 +12,9 @@ namespace PortfolioWebApp.Extensions
 {
     public class ExtensionMethod
     {
-        //Extension method for Post Edit method.
-        //TODO: Post edit olur okay. amma sonra edit olunmus sekillerden kohne sekillerin url'i qalir. Sekil Notfound yazir!
+        //Extension method for Post Edit method.     
         public void PostEdit(Post post, PostEditViewModel model, IFormFile[] fileobj, IWebHostEnvironment _hosting)
         {
-
             string uniqueFileName = null;
             int i = 0;
 
@@ -95,7 +93,7 @@ namespace PortfolioWebApp.Extensions
                     }
                     string filepath = Path.Combine(_hosting.WebRootPath, "postImages", picture);
                     System.IO.File.Delete(filepath);
-                    
+
                 }
             }
         }
