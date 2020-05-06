@@ -20,12 +20,13 @@ namespace PortfolioWebApp.Areas.Admin.Controllers
         }
 
         // GET: Category
+        [HttpGet]
         public ActionResult Index()
         {
             var categoryList = _repo.ListAll();
             return View(categoryList);
         }
-
+        [HttpGet]
         // GET: Category/Create
         public ActionResult Create()
         {

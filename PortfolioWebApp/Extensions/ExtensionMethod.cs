@@ -12,7 +12,7 @@ namespace PortfolioWebApp.Extensions
 {
     public class ExtensionMethod
     {
-        //Extension method for Post Edit method.     
+        //Extension method for Post Edit method(6 photos).     
         public void PostEdit(Post post, PostEditViewModel model, IFormFile[] fileobj, IWebHostEnvironment _hosting)
         {
             string uniqueFileName = null;
@@ -98,7 +98,7 @@ namespace PortfolioWebApp.Extensions
             }
         }
 
-        //Extension method for Post Create method
+        //Extension method for Post Create method(6 photos).
         public void PostCreate(Post post, IFormFile[] fileobj, IWebHostEnvironment _hosting)
         {
             //Guid, random for fileName. For Selected Image.
@@ -140,5 +140,22 @@ namespace PortfolioWebApp.Extensions
             }
         }
 
+        //Extension method for About Create Method(1 photo).
+        public string ProcessUploadFile(AboutOwnerViewModel model, IWebHostEnvironment _hosting)
+        {
+            string uniqueFileName = null;
+            if (model.CompanyPhoto != null)
+            {
+                string uploadsFolder = Path.Combine(_hosting.WebRootPath, "companyImage");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.CompanyPhoto.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.CompanyPhoto.CopyTo(fileStream);
+                }
+            }
+
+            return uniqueFileName;
+        }
     }
 }

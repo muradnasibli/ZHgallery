@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 using PortfolioWebApp.Contracts;
 using PortfolioWebApp.Models;
@@ -12,27 +13,34 @@ namespace PortfolioWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPostRepository _repo;
+        private readonly IPostRepository _postRepo;
+        private readonly IAboutRepository _aboutRepo;
 
-        public HomeController(IPostRepository repo)
+        public HomeController(IPostRepository postRepo, IAboutRepository aboutRepo)
         {
-            _repo = repo;
+            _postRepo = postRepo;
+            _aboutRepo = aboutRepo;
         }
+        
+        [HttpGet]
         public IActionResult Index()
         {
-            var posts = _repo.Include(x => x.Category).ToList();
+            var posts = _postRepo.Include(x => x.Category).ToList();
             return View(posts);
         }
-
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult About()
         {
-            return View();
+            var aboutOwner = _aboutRepo.ListAll();
+            return View(aboutOwner);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult Portfolio()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var portfolioPosts = _postRepo.Include(x => x.Category).ToList();
+            return View(portfolioPosts);
         }
+
     }
 }

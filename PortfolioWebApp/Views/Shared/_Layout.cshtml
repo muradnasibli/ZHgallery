@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Welcome to ZH gallery</title>
+    <title>@ViewData["Title"] - ZHgallery</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,14 +12,14 @@
 
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="~/publicPortfolio/css/font-awesome.min.css">
-
+    <link rel="icon" href="~/publicPortfolio/images/logo.png" type="image/x-icon"/>
     <!-- Styles -->
     <link rel="stylesheet" href="~/publicPortfolio/css/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="site-branding">
-            <h1 class="site-title"><a href="index.html" rel="home"><img src="~/publicPortfolio/images/logo.png" alt="Logo"></a></h1>
+            <h1 class="site-title"><a href="@Url.Action("Index","Home")" rel="home"><img src="~/publicPortfolio/images/logo.png" alt="Logo"></a></h1>
         </div><!-- .site-branding -->
 
         <div class="hamburger-menu">
@@ -35,15 +35,14 @@
 
     <nav class="site-navigation flex flex-column justify-content-between">
         <div class="site-branding d-none d-lg-block ">
-            <h1 class="site-title"><a href="index.html" rel="home"><img src="~/publicPortfolio/images/logo2.png" alt="Logo"></a></h1>
+            <h1 class="site-title"><a href="@Url.Action("Index","Home")" rel="home"><img src="~/publicPortfolio/images/logo2.png" alt="Logo"></a></h1>
         </div><!-- .site-branding -->
 
         <ul class="main-menu flex flex-column justify-content-center">
             <li class="current-menu-item"><a href="@Url.Action("Index","Home")">Home</a></li>
-            <li><a href="@Url.Action("Index","Portfolio")">Portfolio</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="@Url.Action("Portfolio","Home")">Portfolio</a></li>
+            <li><a href="@Url.Action("About","Home")">About</a></li>
+            <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
         </ul>
 
         <p>

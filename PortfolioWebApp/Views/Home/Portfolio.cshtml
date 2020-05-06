@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PortfolioWebApp.Data.Post>
+@{
+    ViewData["Title"] = "Porfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="outer-container">
+    <div class="container portfolio-page">
+        <div class="row">
+            <div class="col">
+                <ul class="breadcrumbs flex align-items-center">
+                    <li><a href="#">Home</a></li>
+                    <li>Portfolio</li>
+                </ul><!-- .breadcrumbs -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="portfolio-content">
+                        <figure>
+                            <img src="~/postImages/@item.FirstImageUrl" alt="@item.Category.Name">
+                        </figure>
+
+                        <div class="entry-content flex flex-column align-items-center justify-content-center">
+                            <h3><a href="#">@item.Name</a></h3>
+
+                            <ul class="flex flex-wrap justify-content-center">
+                                <li><a href="#">@item.Category.Name</a></li>
+                            </ul>
+                        </div><!-- .entry-content -->
+                    </div><!-- .portfolio-content -->
+                </div><!-- .col -->
+            }
+        </div>
+    </div><!-- .container -->
+</div><!-- .outer-container -->

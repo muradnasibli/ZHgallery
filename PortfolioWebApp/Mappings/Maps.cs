@@ -14,6 +14,7 @@ namespace PortfolioWebApp.Mappings
         {
             CreateMap<Post, PostViewModel>().ReverseMap();
             CreateMap<Post, PostEditViewModel>().ReverseMap();
+            CreateMap<About, AboutOwnerViewModel>().ReverseMap();
         }
     }
 }

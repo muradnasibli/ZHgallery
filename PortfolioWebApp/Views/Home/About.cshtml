@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PortfolioWebApp.Data.About>
+@{
+    ViewData["Title"] = "About Owner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="outer-container">
+    <div class="single-post">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumbs flex align-items-center">
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li>About</li>
+                    </ul><!-- .breadcrumbs -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="row">
+                <div class="col-12">
+                    @foreach (var item in Model)
+                    {
+                        <div class="featured-img">
+                            <figure>
+                                <img src="~/companyImage/@item.CompanyPhoto" style="display:block; width:30%; margin-left:auto; margin-right:auto" alt="Square Design">
+                            </figure>
+                        </div><!-- .content-area -->
+                    }
+                </div><!-- .col -->
+
+                <div class="col-12 offset-lg-1 col-lg-10">
+                    <div class="content-area">
+                        @foreach (var item in Model)
+                        {
+                            <header class="entry-header">
+                                <div class="post-meta">
+                                    <a href="@Url.Action("Portfolio","Home")">Portfolio</a>
+                                </div><!-- .meta-post -->
+
+                                <h1>@item.Title</h1>
+
+                                <span class="byline">by <span class="author"><a href="#">Hikmat Sheyubov</a></span> & <span class="author"><a href="#">Ziya Zeynalov</a></span></span>
+                            </header><!-- .entry-header -->
+
+                            <div class="entry-content">
+                                <p>@item.Description </p>
+                            </div><!-- .entry-content -->
+                        }
+                    </div><!-- .content-area -->
+                </div><!-- .col-12 -->
+            </div><!-- .row -->
+
+            <div class="row">
+                <div class="col">
+                    <nav class="post-nav">
+                        <ul class="flex justify-content-between align-items-center">
+                            <li></li>
+                            <li><a href="@Url.Action("Portfolio","Home")"><img src="~/publicPortfolio/images/portfolio-icon.png" alt="Back to Portfolio"></a></li>
+                            <li></li>
+                        </ul>
+                    </nav><!-- .post-nav -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .single-post -->
+</div><!-- .outer-container -->
