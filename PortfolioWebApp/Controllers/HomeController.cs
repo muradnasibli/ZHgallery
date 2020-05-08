@@ -42,5 +42,9 @@ namespace PortfolioWebApp.Controllers
             return View(portfolioPosts);
         }
 
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }

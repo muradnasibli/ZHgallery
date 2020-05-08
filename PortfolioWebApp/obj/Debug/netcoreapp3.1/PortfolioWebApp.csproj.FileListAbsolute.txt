@@ -159,3 +159,4 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutOwner\Create.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Portfolio.cshtml.g.cs
+C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
