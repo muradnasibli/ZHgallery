@@ -51,6 +51,8 @@ namespace PortfolioWebApp.Controllers
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
+            Extensions.ExtensionMethod ext = new Extensions.ExtensionMethod();
+            ext.SentMail(model);
             return View();
         }
     }

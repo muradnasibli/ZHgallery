@@ -18,5 +18,6 @@ namespace PortfolioWebApp.Models
 
         [Required(ErrorMessage = "Enter your message")]
         public string Message { get; set; }
+
     }
 }

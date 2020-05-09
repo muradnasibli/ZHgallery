@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MimeKit;
 using PortfolioWebApp.Data;
 using PortfolioWebApp.Models;
 using System;
@@ -156,6 +161,34 @@ namespace PortfolioWebApp.Extensions
             }
 
             return uniqueFileName;
+        }
+
+        //Sent Mail.
+
+        //TODO: MessageTo qeyd olunan iki veya ikiden artiq olan adminlere getmelidir.
+        //
+        public void SentMail(ContactViewModel model, ApplicationUser user)
+        {
+            var messageTo = "muradin@code.edu.az";
+            var messageFrom = "muradnasibli@gmail.com";
+
+            var message = new MimeMessage(); //Sent message from Contact view.
+            message.From.Add(new MailboxAddress(messageFrom)); //get model name and email for to send mail.
+            message.To.Add(new MailboxAddress(messageTo)); //email will send to written email address.
+            message.Subject = "Let's work together!";
+            message.Body = new TextPart("plain")
+            {
+                Text = $"Client informations name: {model.Name} email: {model.Email}. Client message is: {model.Message}."
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false); //smtp host and port number 587;
+                client.Authenticate("muradnasibli@gmail.com", "aleskerovanazile");//if you get error go to the email(what ever yahoo,gmail etc...) access less secure apps.
+
+                client.Send(message);
+                client.Disconnect(true);
+            }
         }
     }
 }
