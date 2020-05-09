@@ -171,6 +171,8 @@ namespace PortfolioWebApp.Extensions
         {
             var messageTo = "muradin@code.edu.az";
             var messageFrom = "muradnasibli@gmail.com";
+            var clientsMessage = $"Client informations name: {model.Name} email: {model.Email}. Client message is: {model.Message}.";
+
 
             var message = new MimeMessage(); //Sent message from Contact view.
             message.From.Add(new MailboxAddress(messageFrom)); //get model name and email for to send mail.
@@ -178,7 +180,7 @@ namespace PortfolioWebApp.Extensions
             message.Subject = "Let's work together!";
             message.Body = new TextPart("plain")
             {
-                Text = $"Client informations name: {model.Name} email: {model.Email}. Client message is: {model.Message}."
+                Text = clientsMessage
             };
 
             using (var client = new SmtpClient())
