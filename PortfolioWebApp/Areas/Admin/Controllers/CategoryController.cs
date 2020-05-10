@@ -10,6 +10,7 @@ using PortfolioWebApp.Data;
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("SuperAdmin,Admin")]
     public class CategoryController : Controller
     {
         private ICategoryRepository _repo;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebApp.Data;
@@ -26,12 +27,14 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
+        [Authorize("SuperAdmin")]
         public IActionResult Registration()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
+        [Authorize("SuperAdmin")]
         public async Task<IActionResult> Registration(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -59,7 +62,7 @@ namespace PortfolioWebApp.Controllers
 
                 await _signInManager.SignInAsync(user, true);
 
-                return RedirectToAction("Index", "Home");
+                return Redirect("Account/Login");
 
             }
 
@@ -67,12 +70,14 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
+        [Authorize("SuperAdmin,Admin")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
+        [Authorize("SuperAdmin,Admin")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             {
@@ -94,10 +99,15 @@ namespace PortfolioWebApp.Controllers
                     ModelState.AddModelError("", "Email address or password is incorrect");
                     return View(model);
                 }
-                return Redirect("/Home/Index");
+                return RedirectToAction("Index", "Post", new { area = "Admin" });
 
             }
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("/Account/Login");
+        }
     }
 }

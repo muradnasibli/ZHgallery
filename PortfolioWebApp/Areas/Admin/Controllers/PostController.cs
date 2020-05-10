@@ -11,10 +11,12 @@ using PortfolioWebApp.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Admin, SuperAdmin")]
     public class PostController : Controller
     {
         private IPostRepository _repo;

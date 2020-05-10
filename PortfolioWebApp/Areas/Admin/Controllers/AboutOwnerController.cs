@@ -13,6 +13,7 @@ using PortfolioWebApp.Models;
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("SuperAdmin,Admin")]
     public class AboutOwnerController : Controller
     {
         private readonly IAboutRepository _repo;
