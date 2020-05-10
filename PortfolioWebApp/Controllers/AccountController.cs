@@ -32,7 +32,7 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegistrationAsync(RegisterViewModel model)
+        public async Task<IActionResult> Registration(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginAsync(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             {
                 if (!ModelState.IsValid)
