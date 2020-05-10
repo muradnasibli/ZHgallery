@@ -26,15 +26,14 @@ namespace PortfolioWebApp.Controllers
             _roleManager = roleManager;
         }
 
-        [HttpGet]
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
+        [HttpGet]        
         public IActionResult Registration()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Registration(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -62,7 +61,7 @@ namespace PortfolioWebApp.Controllers
 
                 await _signInManager.SignInAsync(user, true);
 
-                return Redirect("Account/Login");
+                return Redirect("/Account/Login");
 
             }
 
@@ -70,14 +69,12 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             {
@@ -104,10 +101,5 @@ namespace PortfolioWebApp.Controllers
             }
         }
 
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return Redirect("/Account/Login");
-        }
     }
 }

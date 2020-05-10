@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin, SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class PostController : Controller
     {
         private IPostRepository _repo;
