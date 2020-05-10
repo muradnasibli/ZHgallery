@@ -167,12 +167,11 @@ namespace PortfolioWebApp.Extensions
 
         //TODO: MessageTo qeyd olunan iki veya ikiden artiq olan adminlere getmelidir.
         //
-        public void SentMail(ContactViewModel model, ApplicationUser user)
+        public void SentMail(ContactViewModel model)
         {
             var messageTo = "muradin@code.edu.az";
             var messageFrom = "muradnasibli@gmail.com";
             var clientsMessage = $"Client informations name: {model.Name} email: {model.Email}. Client message is: {model.Message}.";
-
 
             var message = new MimeMessage(); //Sent message from Contact view.
             message.From.Add(new MailboxAddress(messageFrom)); //get model name and email for to send mail.
