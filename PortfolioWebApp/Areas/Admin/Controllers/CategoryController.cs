@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebApp.Contracts;
@@ -10,7 +11,7 @@ using PortfolioWebApp.Data;
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class CategoryController : Controller
     {
         private ICategoryRepository _repo;

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebApp.Contracts;
@@ -13,7 +14,7 @@ using PortfolioWebApp.Models;
 namespace PortfolioWebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class AboutOwnerController : Controller
     {
         private readonly IAboutRepository _repo;

@@ -27,14 +27,14 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
-        [Authorize("SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Registration()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        [Authorize("SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Registration(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -70,14 +70,14 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
-        [Authorize("SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        [Authorize("SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             {
