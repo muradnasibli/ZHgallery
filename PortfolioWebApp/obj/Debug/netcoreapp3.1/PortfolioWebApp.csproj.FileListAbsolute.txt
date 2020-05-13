@@ -164,3 +164,4 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Registration.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Post.cshtml.g.cs
+C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.csprojAssemblyReference.cache

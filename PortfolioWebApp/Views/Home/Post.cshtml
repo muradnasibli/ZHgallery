@@ -1,8 +1,11 @@
 ﻿@model PortfolioWebApp.Data.Post
 @{
-    ViewData["Title"] = "Post";
+    ViewData["Title"] = $"Post - {Model.Name}";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
     var date = DateTime.Now.ToString("MMMM dd, yyyy");
+    var previous = Model.Id - 1;
+    var next = Model.Id + 1;
 }
 <div class="outer-container">
     <div class="container single-portfolio">
@@ -11,6 +14,11 @@
                 <div class="featured-img">
                     <figure>
                         <img src="~/postImages/@Model.FirstImageUrl" alt="">
+                        <img src="~/postImages/@Model.SecondImageUrl" alt="">
+                        <img src="~/postImages/@Model.ThirdImageUrl" alt="">
+                        <img src="~/postImages/@Model.FourthImageUrl" alt="">
+                        <img src="~/postImages/@Model.FifthImageUrl" alt="">
+                        <img src="~/postImages/@Model.SixthImageUrl" alt="">
                     </figure>
                 </div><!-- .content-area -->
             </div><!-- .col-12 -->
@@ -43,19 +51,14 @@
                 <div class="entry-meta">
                     <div class="posted-date">
                         <label>Date</label>
-
                         <span class="date-format"><a href="#">@date</a></span>
                     </div><!-- .posted-date -->
 
                     <div class="post-category">
                         <label>Category</label>
-                        <span><a href="#">Photography</a></span>
+                        <span><a href="#">@Model.Category.Name</a></span>
                     </div><!-- .post-category -->
 
-                    <div class="posted-tags">
-                        <label>tags</label>
-                        <span><a href="#">Photography</a>, <a href="#">nature</a>, <a href="#">hat</a> </span>
-                    </div><!-- .entry-meta -->
                 </div><!-- .entry-meta -->
             </aside><!-- .col-md-3 -->
         </div><!-- .row -->
@@ -64,9 +67,10 @@
             <div class="col">
                 <nav class="post-nav">
                     <ul class="flex justify-content-between align-items-center">
-                        <li><a href="#"><img src="images/angle-left.png" alt="Previous"></a></li>
-                        <li><a href="#"><img src="images/portfolio-icon.png" alt="Back to Portfolio"></a></li>
-                        <li><a href="#"><img src="images/angle-right.png" alt="Next"></a></li>
+                        <li><a asp-action="Post" asp-controller="Home" asp-route-id="@previous" asp-route-name="@Model.Name"><img src="~/publicPortfolio/images/angle-left.png" alt="Previous"></a></li>
+                        <li><a href="@Url.Action("Portfolio","Home")"><img src="~/publicPortfolio/images/portfolio-icon.png" alt="Back to Portfolio"></a></li>
+                        <li><a asp-action="Post" asp-controller="Home" asp-route-id="@next" asp-route-name="@Model.Name"><img src="~/publicPortfolio/images/angle-right.png" alt="Next"></a></li>
+
                     </ul>
                 </nav><!-- .post-nav -->
             </div><!-- .col -->
