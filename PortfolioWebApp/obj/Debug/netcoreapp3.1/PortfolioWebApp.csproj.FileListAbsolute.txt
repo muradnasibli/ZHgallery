@@ -12,7 +12,6 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.TagHelpers.output.cache
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.RazorCoreGenerate.cache
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -147,7 +146,6 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Category\Default.cshtml.g.cs
-C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.csprojAssemblyReference.cache
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -165,3 +163,4 @@ C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcore
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\PortfolioWebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Registration.cshtml.g.cs
 C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Murad-PC\source\repos\PortfolioWebApp\PortfolioWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Post.cshtml.g.cs

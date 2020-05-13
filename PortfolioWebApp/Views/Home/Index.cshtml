@@ -17,8 +17,7 @@
                         </figure>
 
                         <div class="entry-content flex flex-column align-items-center justify-content-center">
-                            <h3><a href="#">@item.Name</a></h3>
-
+                            <h3><a asp-action="Post" asp-controller="Home" asp-route-id="@item.Id" asp-route-name="@item.Name">@item.Name</a></h3>                            
                             <ul class="flex flex-wrap justify-content-center">
                                 <li><a href="#">@item.Category.Name</a></li>
                                 @*<li><a href="#">Tree</a></li>*@

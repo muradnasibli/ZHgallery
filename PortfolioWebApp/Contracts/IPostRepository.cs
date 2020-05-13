@@ -12,5 +12,6 @@ namespace PortfolioWebApp.Contracts
         //Show details with multiple table, 
         IQueryable<Post> GetWhere(Expression<Func<Post, bool>> predicate);
         IQueryable<Post> Include(params Expression<Func<Post, object>>[] includes);
+        Post FindByName(string name);
     }
 }

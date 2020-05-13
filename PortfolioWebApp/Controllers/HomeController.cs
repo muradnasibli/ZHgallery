@@ -55,5 +55,15 @@ namespace PortfolioWebApp.Controllers
             ext.SentMail(model);
             return View();
         }
+
+        [HttpGet]
+        [Route("/Home/Post/{name}/{id}")]
+        public IActionResult Post(string name, int id)
+        {
+            var postId = _postRepo.FindById(id);
+            //var post = _postRepo.GetWhere(x => postId.Name == name).FirstOrDefault();
+            //var post = _postRepo.FindByName(name);
+            return View(postId);
+        }
     }
 }

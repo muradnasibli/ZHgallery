@@ -80,5 +80,9 @@ namespace PortfolioWebApp.Repository
             return Save();
         }
 
+        public Post FindByName(string name)
+        {
+            return _db.Posts.FirstOrDefault(x => x.Name == name);
+        }
     }
 }
