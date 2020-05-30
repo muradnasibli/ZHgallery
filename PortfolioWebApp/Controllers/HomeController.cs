@@ -21,7 +21,7 @@ namespace PortfolioWebApp.Controllers
             _postRepo = postRepo;
             _aboutRepo = aboutRepo;
         }
-        
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -36,9 +36,18 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
+        //[Route("/Home/Portfolio/{currentCategory}/")]
         public IActionResult Portfolio()
         {
+            int currentCategory;
             var portfolioPosts = _postRepo.Include(x => x.Category).ToList();
+        
+            currentCategory = Convert.ToInt32(HttpContext.Request.Query["category"]); //QueryString Index,Home;
+            var selectedCategory = _postRepo.GetWhere(x => x.CategoryId == currentCategory).ToList();
+
+            if (currentCategory > 0)
+                return View(selectedCategory);
+
             return View(portfolioPosts);
         }
 
@@ -57,12 +66,20 @@ namespace PortfolioWebApp.Controllers
         }
 
         [HttpGet]
-        [Route("/Home/Post/{name}/{id}")]
+        [Route("/Home/Post/{name}/{id?}")]
         public IActionResult Post(string name, int id)
         {
             if (!_postRepo.isExists(id))
             {
                 return NotFound();
+            }
+            string[] chars = new string[] { " " };
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (name.Contains(chars[i]))
+                {
+                    name = name.Replace(chars[i], "-");
+                }
             }
             var post = _postRepo.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
             return View(post);

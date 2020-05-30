@@ -190,6 +190,12 @@
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @if (TempData["message"] != null)
+                    {
+                        <div class="alert alert-primary">
+                            @TempData["message"]
+                        </div>
+                    }
                     @RenderBody()
                 </div>
                 <!-- /.container-fluid -->

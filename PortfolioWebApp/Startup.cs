@@ -31,9 +31,9 @@ namespace PortfolioWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+
             services.AddMvc();
-            
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -47,7 +47,7 @@ namespace PortfolioWebApp
                   .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(x =>
             {
-                x.Password.RequiredLength = 6;                
+                x.Password.RequiredLength = 6;
             });
             //For Mapping.
             services.AddAutoMapper(typeof(Maps));

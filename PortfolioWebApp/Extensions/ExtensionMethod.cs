@@ -31,29 +31,29 @@ namespace PortfolioWebApp.Extensions
             post.CategoryId = model.CategoryId;
             post.UpdateDate = DateTime.Today;
 
-            //Make equal to null. Because when we edit previous url didn't change.
-            post.FirstImageUrl = null;
-            post.SecondImageUrl = null;
-            post.ThirdImageUrl = null;
-            post.FourthImageUrl = null;
-            post.FifthImageUrl = null;
-            post.SixthImageUrl = null;
-
-            //Mapping Pictures Filepath to ViewModel. Our vm gives us null imageUrl. That's why we mapping Post photoUrl to Vm photoUrl.          
-            //Get Previous pictures url to empty Viewmodel picture url. Then with filepathes array make loop and delete old pictures from root folder. 
-            //Get Pictures to array
-            string[] filepathes = new string[6]
+            if (fileobj.Length > 0)
             {
+                //Make equal to null. Because when we edit previous url didn't change.
+                post.FirstImageUrl = null;
+                post.SecondImageUrl = null;
+                post.ThirdImageUrl = null;
+                post.FourthImageUrl = null;
+                post.FifthImageUrl = null;
+                post.SixthImageUrl = null;
+
+                //Mapping Pictures Filepath to ViewModel. Our vm gives us null imageUrl. That's why we mapping Post photoUrl to Vm photoUrl.          
+                //Get Previous pictures url to empty Viewmodel picture url. Then with filepathes array make loop and delete old pictures from root folder. 
+                //Get Pictures to array
+                string[] filepathes = new string[6]
+                {
                     model.FirstImageUrl = post.FirstImageUrl,
                     model.SecondImageUrl = post.SecondImageUrl,
                     model.ThirdImageUrl = post.ThirdImageUrl,
                     model.FourthImageUrl = post.FourthImageUrl,
                     model.FifthImageUrl = post.FifthImageUrl,
                     model.SixthImageUrl = post.SixthImageUrl
-            };
+                };
 
-            if (fileobj.Length > 0)
-            {
                 //Adding new pictures, when in edit action selected new pictures *files.jpg/png*.Adding new pictures with new random name.
                 foreach (var img in fileobj)
                 {

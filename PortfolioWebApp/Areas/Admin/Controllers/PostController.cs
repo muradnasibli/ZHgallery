@@ -75,6 +75,9 @@ namespace PortfolioWebApp.Areas.Admin.Controllers
                     extension.PostCreate(post, fileobj, _hosting);
                     
                     var isSuccess = _repo.Create(post);
+
+                    TempData.Add("message", model.Name + " succesfully created!");
+
                     return RedirectToAction(nameof(Index));
                 }
                
@@ -126,6 +129,7 @@ namespace PortfolioWebApp.Areas.Admin.Controllers
                     return View(model);
                 }
 
+                TempData.Add("message", model.Name + " succesfully updated!");
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -186,6 +190,7 @@ namespace PortfolioWebApp.Areas.Admin.Controllers
                 string filepath = Path.Combine(_hosting.WebRootPath, "postImages", picture);
                 System.IO.File.Delete(filepath);
             }
+            TempData.Add("message", " succesfully removed!");
             return RedirectToAction(nameof(Index));
         }
     }
